@@ -1,0 +1,31 @@
+int led=8;
+int analogPin=0;
+int buzzer=13;
+void setup() {
+ pinMode(led,OUTPUT);
+ pinMode(buzzer,OUTPUT);
+ pinMode(analogPin,INPUT);
+ Serial.begin(9600);
+}
+
+void loop() 
+{
+  int sensed_value=analogRead(analogPin);
+  Serial.println(sensed_value);
+  delay(1000);
+  int threshold=300;
+  if(sensed_value<threshold)
+  {
+    digitalWrite(led,HIGH);
+    digitalWrite(buzzer,HIGH);
+    delay(10);
+  }
+  else
+  {
+    digitalWrite(led,LOW);
+    digitalWrite(buzzer,LOW);
+    delay(10);
+    
+  }
+
+}
